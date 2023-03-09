@@ -9,7 +9,10 @@ public class DocumentEntityTypeConfiguration : IEntityTypeConfiguration<Document
     public void Configure(EntityTypeBuilder<Document> builder)
     {
         builder.HasKey(p => p.Id);
+        
         builder.Property(p => p.Title)
             .HasMaxLength(255);
+        
+        builder.HasIndex(p => p.Title);
     }
 }
