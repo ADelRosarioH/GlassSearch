@@ -55,4 +55,4 @@ To connect to MSSQL Server using SQL Management Studio or other tool use the fol
 - AutoFixture
 
 ### Requirements
-Requirements can be found in this (pdf)[Glass Test - Full-Stack Software Developer.pdf].
+Requirements can be found in this (pdf)[requirements.pdf].
