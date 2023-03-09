@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using GlassSearch.Core.Data;
 using GlassSearch.Core.Data.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -22,11 +23,13 @@ public static class LegacySearchService
             throw new Exception($"{nameof(LegacySearchService)} must be initialized prior to used.");
         }
 
+        query = Regex.Replace(query.Trim(), "[^0-9a-zA-Z]+", string.Empty);
+
         if (string.IsNullOrEmpty(query))
         {
             return _context.Documents.ToList();
         }
-
+        
         var results = _context.Documents
             .Where(d => (matchAll 
                             ? string.Equals(d.Id.ToString(), query) 
